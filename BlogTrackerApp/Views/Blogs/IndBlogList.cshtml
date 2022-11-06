@@ -1,0 +1,56 @@
+﻿@model IEnumerable<BlogTrackerApp.Models.Blog>
+
+@{
+    ViewBag.Title = "IndBlogList";
+}
+
+<h2>IndBlogList</h2>
+
+<p>
+    @Html.ActionLink("Create New", "NewBlog")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Subject)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateOfCreation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BlogUrl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Emailid)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Subject)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateOfCreation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BlogUrl)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Emailid)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "UpdateBlog", new { id=item.BlogId })   |
+            @Html.ActionLink("Delete", "DeleteBlog", new { id=item.BlogId })
+        </td>
+    </tr>
+}
+
+</table>
